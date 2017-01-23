@@ -15,4 +15,4 @@ The system will consist of two parts:
 The database that holds details of users and projects and jobs will be built with Ruby on Rails. I'll use scaffolding to build a view onto the project database for chrarities with restful routes to create, review, update and delete records. 
 The rest of the app will be built in React JS to provide a front end for volunteers to enter their details, and to see a google map with projects in their vicinity. 
 
-The charities will also use the React front end to locate volunteers via the mapand see their profiles with contact details. 
+The charities will also use the React front end to locate volunteers via the map and see their profiles with contact details. 
