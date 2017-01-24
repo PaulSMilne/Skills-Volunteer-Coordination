@@ -1,0 +1,6 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: Wild Scotland
+  description: Promoting wildlife and caretaking nature reserves.
+
