@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'charities' => 'charities#index'
+scope path: "api" do
+  resources :charities
+end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

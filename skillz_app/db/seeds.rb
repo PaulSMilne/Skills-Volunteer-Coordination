@@ -7,3 +7,4 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 Charity.delete_all
 Charity.create({name:"Wild Scotland", description:"Promoting wildlife and caretaking nature reserves."})
+Charity.create({name:"Scots Oaks", description:"Nurturing ancient oak woodlands."})
