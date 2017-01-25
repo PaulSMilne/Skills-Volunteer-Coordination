@@ -1,9 +1,18 @@
 Rails.application.routes.draw do
 
-scope path: "api" do
-  resources :charities
-  resources :projects
-end
+  scope path: "api" do
+
+    resources :charities
+
+    resources :projects do
+      resources :skills
+    end
+    
+    resources :skills do
+      resources :projects
+    end 
+
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
