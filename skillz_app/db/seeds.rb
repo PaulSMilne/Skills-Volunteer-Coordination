@@ -11,16 +11,13 @@ Skill.delete_all
 Project.delete_all
 ProjectSkill.delete_all
 
-Charity.create({name:"Wild Scotland", description:"Promoting wildlife and caretaking nature reserves."})
-Charity.create({name:"Scots Oaks", description:"Nurturing ancient oak woodlands."})
-
 s1 = Skill.create({name: "carpentry"})
 s2 = Skill.create({name: "dry-stone wall building"})
 s3 = Skill.create({name: "plumbing"})
 s4 = Skill.create({name: "general labour"})
 
-p1 = Project.create({name: "Wall repair", location: "Woodhall Dean"})
-p2 = Project.create({name: "Visitor centre refurbishment", location: "Pease Bay"})
+p1 = Project.create({name: "Wall repair", location: "Woodhall Dean", lat: 55.9525, lon: -2.5055})
+p2 = Project.create({name: "Visitor centre refurbishment", location: "Pease Bay", lat: 55.9283, lon: -2.3309})
 
 ProjectSkill.create( { skill_id: s1.id, project_id: p2.id } )
 ProjectSkill.create( { skill_id: s3.id, project_id: p2.id } )
@@ -28,4 +25,3 @@ ProjectSkill.create( { skill_id: s4.id, project_id: p2.id } )
 
 ProjectSkill.create( { skill_id: s2.id, project_id: p1.id } )
 ProjectSkill.create( { skill_id: s4.id, project_id: p1.id } )
-
