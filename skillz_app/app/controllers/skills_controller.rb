@@ -3,10 +3,10 @@ class SkillsController < ApplicationController
       skills = Skill.all
       render :json => skills
    end
-   
+
    def show
       skill = Skill.find(params[:id])
-      render json: skill.as_json( include: :projects )
+      render :json => skill.as_json( include: :projects )
    end
 
 end
