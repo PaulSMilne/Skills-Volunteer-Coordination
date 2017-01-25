@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 scope path: "api" do
   resources :charities
+  resources :projects
 end
 
   # The priority is based upon order of creation: first created -> highest priority.
