@@ -13,8 +13,6 @@ var server = app.listen(3000, function () {
   var host = server.address().address;
   var port = server.address().port;
 
-  console.log('Less is always more');
-  console.log('Turn off your TV and leave');
-  console.log('Blackbird has news for you');
+
   console.log('Example app listening at http://%s:%s', host, port);
 });
