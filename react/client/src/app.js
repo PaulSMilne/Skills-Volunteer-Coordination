@@ -1,8 +1,8 @@
 const React = require('react')
 const ReactDOM = require('react-dom')
 const Home = require('./components/Home')
-const Listing = require('./components/Projects')
-const Listing = require('./components/Skills')
+const Projects = require('./components/Projects')
+const Skills = require('./components/Skills')
 const Main = require('./components/Main')
 const ReactRouter = require('react-router')
 const {Router, Route, IndexRoute, hashHistory} = ReactRouter
