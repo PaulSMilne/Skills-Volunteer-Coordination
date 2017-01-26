@@ -1,17 +1,44 @@
 import React from 'react'
 
-const SkillsList = () => {
+class SkillsList extends React.Component {
 
-  return(
+  constructor(props){
+       super(props)
+       this.state = { skills: []}
+  }
 
-    <section className="skills">
+  loadSkills(url){
+       const request = new XMLHttpRequest()
+       request.open('GET', url)
 
-      <h1>Skills Required</h1>
+       request.onload = () => {
+
+            if (request.status===200){
+                 const jsonString = request.responseText
+                 const skillsList = JSON.parse(jsonString)
+                 this.setState({skills:skillsList})
+                 console.log(this.state.skills)
+            }
+       }
+       request.send()
+  }
+
+  componentDidMount(){
+       this.loadSkills('http://localhost:5000/api/skills')
+  }
+
+  render(){
+    return(
+
+      <section className="skills">
+
+        <h1>Skills Required</h1>
 
 
-    </section>
+      </section>
 
-  )
+    )
+  }
 
 }
 
