@@ -11,8 +11,8 @@ loadProjects(url){
      const request = new XMLHttpRequest()
      request.open('GET', url)
 
-     request.setRequestHeader('Content-Type', "application/json")
-     request.withCredentials = true
+    //  request.setRequestHeader('Content-Type', "application/json")
+    //  request.withCredentials = true
 
      request.onload = () => {
 
