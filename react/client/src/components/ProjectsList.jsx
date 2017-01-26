@@ -20,7 +20,8 @@ loadProjects(url){
                const jsonString = request.responseText
                const projectsList = JSON.parse(jsonString)
                console.log(projectsList)
-               this.setState({haikus:projectsList.projects})
+               this.setState({projects:projectsList})
+               console.log(this.state.projects)
           }
      }
      request.send()
@@ -36,6 +37,8 @@ render(){
     <section className="projects">
 
       <h1>Projects</h1>
+
+      
 
     </section>
 
