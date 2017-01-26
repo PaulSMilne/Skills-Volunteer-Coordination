@@ -1,12 +1,20 @@
-const React = require('react')
-const { Link } = require('react-router')
-const LoginBox = require('../auth/LoginBox.jsx')
+import React from 'react'
 
-const Home = () => (
-  <div className="home">
-    <h1 className="title">notflix</h1>
-    <LoginBox url="http://localhost:5000/" />
-  </div>
-)
+const Home = () => {
 
-module.exports = Home
+  return(
+
+    <section className="home">
+
+      <h1>Use your Skills</h1>
+
+      <p>Here you can find where you are needed most.</p>
+      <p>Use the links above to see projects and skillsets required</p>
+
+    </section>
+
+  )
+
+}
+
+export default Home
