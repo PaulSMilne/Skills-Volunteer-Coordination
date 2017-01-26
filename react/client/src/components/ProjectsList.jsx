@@ -19,8 +19,14 @@ loadProjects(url){
           if (request.status===200){
                const jsonString = request.responseText
                const projectsList = JSON.parse(jsonString)
-               console.log(projectsList)
-               this.setState({projects:projectsList})
+
+               const projectsIDs = []
+
+               for (let project of projectsList){
+                 projectsIDs.push(project.id)
+               }
+
+               this.setState({projects:projectsIDs})
                console.log(this.state.projects)
           }
      }
@@ -38,7 +44,7 @@ render(){
 
       <h1>Projects</h1>
 
-      
+
 
     </section>
 

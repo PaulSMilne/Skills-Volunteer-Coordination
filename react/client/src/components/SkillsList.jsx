@@ -16,7 +16,14 @@ class SkillsList extends React.Component {
             if (request.status===200){
                  const jsonString = request.responseText
                  const skillsList = JSON.parse(jsonString)
-                 this.setState({skills:skillsList})
+
+                 const skillsIDs = []
+
+                 for (let skill of skillsList){
+                   skillsIDs.push(skill.id)
+                 }
+
+                 this.setState({skills:skillsIDs})
                  console.log(this.state.skills)
             }
        }
