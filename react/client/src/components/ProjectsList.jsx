@@ -11,16 +11,23 @@ loadProjects(url){
      const request = new XMLHttpRequest()
      request.open('GET', url)
 
-     request.setRequestHeader('Content-Type', "application/json")
-     request.withCredentials = true
+    //  request.setRequestHeader('Content-Type', "application/json")
+    //  request.withCredentials = true
 
      request.onload = () => {
 
           if (request.status===200){
                const jsonString = request.responseText
                const projectsList = JSON.parse(jsonString)
-               console.log(projectsList)
-               this.setState({haikus:projectsList.projects})
+
+               const projectsIDs = []
+
+               for (let project of projectsList){
+                 projectsIDs.push(project.id)
+               }
+
+               this.setState({projects:projectsIDs})
+               console.log(this.state.projects)
           }
      }
      request.send()
@@ -36,6 +43,8 @@ render(){
     <section className="projects">
 
       <h1>Projects</h1>
+
+
 
     </section>
 
