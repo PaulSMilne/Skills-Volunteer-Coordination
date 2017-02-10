@@ -1,11 +1,11 @@
 import React from 'react'
-import {Router, hashHistory} from 'react-router'
+import {Router, browserHistory} from 'react-router'
 import routes from '../routes.js'
 
 export default class AppRoutes extends React.Component {
   render(){
     return(
-      <Router history={hashHistory} routes={routes} />
+      <Router history={browserHistory} routes={routes} />
     )
   }
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import ProjectsList from './ProjectsList.jsx'
 
 class Projects extends React.Component{
 
