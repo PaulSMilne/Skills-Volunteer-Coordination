@@ -63,4 +63,4 @@ render(){
   )}
 }
 
-export default ProjectsList
+export default Projects
