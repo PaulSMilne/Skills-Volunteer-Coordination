@@ -1,6 +1,6 @@
 import React from 'react'
-import Projects from './ProjectsList.jsx'
-import Skills from './SkillsList.jsx'
+import Projects from './Projects.jsx'
+import Skills from './Skills.jsx'
 import {Link} from 'react-router'
 
 const Main = (props) => {

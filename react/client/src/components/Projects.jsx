@@ -1,10 +1,10 @@
 import React from 'react'
 
-class ProjectsList extends React.Component{
+class Projects extends React.Component{
 
 constructor(props){
      super(props)
-     this.state = { AllProjects }
+     this.state = { projects: []}
 }
 // There are as many requests as needed to get the full set of objects
 // for each item in the projects list a new request is sent
