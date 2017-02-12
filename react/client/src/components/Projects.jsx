@@ -33,12 +33,13 @@ loadProjects(url){
                      const newJsonString = newRequest.responseText
                      const projectWithSkills = JSON.parse(newJsonString)
                      projectSkills.push(projectWithSkills)
+                     this.setState({projects:projectSkills})
                    }
                  }
                  newRequest.send()
 //                 projectsIDs.push(project.id)
                }
-               this.setState({projects:projectSkills})
+               //this.setState({projects:projectSkills})
                console.log(this.state.projects)
           }
      }
