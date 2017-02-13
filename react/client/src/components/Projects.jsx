@@ -37,10 +37,8 @@ loadProjects(url){
                    }
                  }
                  newRequest.send()
-//                 projectsIDs.push(project.id)
                }
-               //this.setState({projects:projectSkills})
-               console.log(this.state.projects)
+
           }
      }
      request.send()

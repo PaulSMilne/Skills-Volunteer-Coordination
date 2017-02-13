@@ -2,10 +2,6 @@ import React from 'react'
 import ProjectSkillset from './ProjectSkillset.jsx'
 
 const Project = (props) => {
-
-  console.log(props.project.name)
-  console.log(props.project.skills)
-
   const skillz = props.project.skills.map(
     function(skill, index){
       return(
@@ -14,7 +10,6 @@ const Project = (props) => {
     }
   )
 
-//const skills = props.project.skills
 
   return (
     <div>

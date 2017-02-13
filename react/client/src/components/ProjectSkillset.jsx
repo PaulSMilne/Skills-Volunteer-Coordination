@@ -3,7 +3,7 @@ import React from 'react'
 const ProjectSkillset = (props) => {
 
   return (
-    <li>{projectSkill}</li>
+    <li>{props.projectSkill.name}</li>
   )
 
 }
