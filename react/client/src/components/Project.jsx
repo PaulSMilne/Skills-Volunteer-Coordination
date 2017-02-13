@@ -14,7 +14,8 @@ const Project = (props) => {
   return (
     <div>
     <h4>{props.project.name}</h4>
-    <p>{props.project.location}</p>
+    <p>Location: {props.project.location}</p>
+    <p>Skills required:</p>
     <ul>
     {skillz}
     </ul>
