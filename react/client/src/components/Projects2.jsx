@@ -7,10 +7,43 @@ constructor(props){
      super(props)
      this.state = { projects: []}
 }
-// There are as many requests as needed to get the full set of objects
-// for each item in the projects list a new request is sent
-// using the id to target an individual project and its skills
-// and put those into the this.state.projects array.
+
+makeRequest(url, callback){
+  const request = new XMLHttpRequest()
+  request.open(GET, url)
+  request.onload = callback
+  request.send()
+}
+
+projectRequestComplete(){
+  if (request.status===200){
+       const jsonString = request.responseText
+       const projectList = JSON.parse(jsonString)
+       for (let project of projectList){
+         let newUrl = url+"/"+project.id
+         makeRequest(newUrl, skillRequestComplete)
+         }
+       }
+  }
+
+skillRequestComplete(){
+  if (newRequest.status===200){
+    let projectSkills = []
+    const newJsonString = newRequest.responseText
+    const projectWithSkills = JSON.parse(newJsonString)
+    projectSkills.push(projectWithSkills)
+    this.setState({projects:projectSkills})
+  }
+}
+
+addNewProject(projectData) {
+  const currentProjects = this.state.projects;
+  const newProjects = […this.state.projects, projectData]
+  this.setState({
+     projects: newProjects
+  })
+}
+
 loadProjects(url){
      const request = new XMLHttpRequest()
      request.open('GET', url)
@@ -58,5 +91,7 @@ render(){
 
   )}
 }
+
+
 
 export default Projects
