@@ -11,34 +11,74 @@ constructor(props){
 makeRequest(url, callback){
   const request = new XMLHttpRequest()
   request.open('GET', url)
-  request.onload = callback
+  request.onload = function () {
+    if (request.status===200) callback(request.responseText)
+  }
   request.send()
 }
 
-projectRequestComplete(){
-  if (request!==200) return;
-       const jsonString = request.responseText
+projectRequestComplete(response){
+  //if (this.status !==200) return;
+       const jsonString = response
        const projectList = JSON.parse(jsonString)
-       console.log("something")
-
+       console.log(projectList)
+       console.log(response)
       //  for (let project of projectList){
       //    let newUrl = url+"/"+project.id
-      //    makeRequest(newUrl, this.skillRequestComplete())
+      //    makeRequest(newUrl, skillRequestComplete)
       //    }
   }
 
 skillRequestComplete(){
-  if (this.status!==200) return
+  if (this.request.status===200){
     let projectSkills = []
-    const newJsonString = newRequest.responseText
+    const newJsonString = this.request.responseText
     const projectWithSkills = JSON.parse(newJsonString)
     projectSkills.push(projectWithSkills)
     this.setState({projects:projectSkills})
-     console.log(this.state.projects)
+  }
 }
 
+// addNewProject(projectData) {
+//   const currentProjects = this.state.projects;
+//   const newProjects = […this.state.projects, projectData]
+//   this.setState({
+//      projects: newProjects
+//   })
+// }
+
+// loadProjects(url){
+//      const request = new XMLHttpRequest()
+//      request.open('GET', url)
+//      request.onload = () => {
+//
+//           if (request.status===200){
+//                let projectSkills = []
+//                const jsonString = request.responseText
+//                const projectList = JSON.parse(jsonString)
+//                for (let project of projectList){
+//                  let newUrl = url+"/"+project.id
+//                  const newRequest = new XMLHttpRequest()
+//                  newRequest.open('GET', newUrl)
+//                  newRequest.onload = () => {
+//                    if (newRequest.status===200){
+//                      const newJsonString = newRequest.responseText
+//                      const projectWithSkills = JSON.parse(newJsonString)
+//                      projectSkills.push(projectWithSkills)
+//                      this.setState({projects:projectSkills})
+//                    }
+//                  }
+//                  newRequest.send()
+//                }
+//
+//           }
+//      }
+//      request.send()
+// }
+
+
 componentDidMount(){
-     this.makeRequest('http://localhost:5000/api/projects',this.projectRequestComplete())
+     this.makeRequest('http://localhost:5000/api/projects', this.projectRequestComplete)
 }
 
 render(){

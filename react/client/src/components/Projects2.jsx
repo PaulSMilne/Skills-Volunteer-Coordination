@@ -16,8 +16,8 @@ makeRequest(url, callback){
 }
 
 projectRequestComplete(){
-  if (request.status===200){
-       const jsonString = request.responseText
+  if (this.request.status===200){
+       const jsonString = this.request.responseText
        const projectList = JSON.parse(jsonString)
        for (let project of projectList){
          let newUrl = url+"/"+project.id
@@ -27,9 +27,9 @@ projectRequestComplete(){
   }
 
 skillRequestComplete(){
-  if (newRequest.status===200){
+  if (this.request.status===200){
     let projectSkills = []
-    const newJsonString = newRequest.responseText
+    const newJsonString = this.request.responseText
     const projectWithSkills = JSON.parse(newJsonString)
     projectSkills.push(projectWithSkills)
     this.setState({projects:projectSkills})
