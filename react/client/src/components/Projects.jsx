@@ -20,17 +20,15 @@ makeRequest(url, callback){
 addNewProject(projectData) {
   const currentProjects = this.state.projects;
   const newProjects = [this.state.projects.concat([projectData])]
-  this.setState({
-     projects: newProjects
-  })
+  this.setState({projects: newProjects})
 }
 
 projectRequestComplete(response, url){
        const jsonString = response
        const projectList = JSON.parse(jsonString)
        for (let project of projectList){
-         let url = url+"/"+project.id
-         this.makeRequest(url, this.skillRequestComplete)
+         let newUrl = url+"/"+project.id
+         this.makeRequest(newUrl, this.skillRequestComplete)
        }
   }
 
