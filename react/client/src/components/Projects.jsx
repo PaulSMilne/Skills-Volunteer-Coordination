@@ -12,23 +12,36 @@ makeRequest(url, callback){
   const request = new XMLHttpRequest()
   request.open('GET', url)
   request.onload = function () {
-    if (request.status===200) callback(request.responseText)
+    if (request.status===200) callback(request.responseText, url)
   }
   request.send()
 }
 
-projectRequestComplete(response){
+addNewProject(projectData) {
+  const currentProjects = this.state.projects;
+  const newProjects = [this.state.projects.concat([projectData])]
+  this.setState({
+     projects: newProjects
+  })
+}
+
+projectRequestComplete(response, url){
        const jsonString = response
        const projectList = JSON.parse(jsonString)
-       console.log(projectList)
+       for (let project of projectList){
+         let url = url+"/"+project.id
+         this.makeRequest(url, this.skillRequestComplete)
+       }
   }
 
-skillRequestComplete(){
+skillRequestComplete(response, url){
     let projectSkills = []
     const newJsonString = this.request.responseText
     const projectWithSkills = JSON.parse(newJsonString)
-    projectSkills.push(projectWithSkills)
-    this.setState({projects:projectSkills})
+    this.addNewProject(projectWithSkills)
+    // projectSkills.push(projectWithSkills)
+    // this.setState({projects:projectSkills})
+    console.log(this.state.projects)
 }
 
 componentDidMount(){
