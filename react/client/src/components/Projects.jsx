@@ -6,8 +6,12 @@ class Projects extends React.Component{
 constructor(props){
      super(props)
      this.state = { projects: []}
+     //binding callbacks
+     this.projectRequestComplete = this.projectRequestComplete.bind(this)
+     this.skillRequestComplete = this.skillRequestComplete.bind(this)
 }
 
+//request checks if status is okay at this level and then passes the response text to the callback to process
 makeRequest(url, callback){
   const request = new XMLHttpRequest()
   request.open('GET', url)
@@ -17,12 +21,14 @@ makeRequest(url, callback){
   request.send()
 }
 
+//builds state to include projects with skills
 addNewProject(projectData) {
   const currentProjects = this.state.projects;
-  const newProjects = [this.state.projects.concat([projectData])]
-  this.setState({projects: newProjects})
+  currentProjects.push(projectData)
+  this.setState({projects: currentProjects})
 }
 
+//first callback gets list of project, harvests ids and passes on to a new request for each project with a new url including project id
 projectRequestComplete(response, url){
        const jsonString = response
        const projectList = JSON.parse(jsonString)
@@ -32,19 +38,18 @@ projectRequestComplete(response, url){
        }
   }
 
+//second callback uses the new url with project id to create full project/skills objects
 skillRequestComplete(response, url){
     let projectSkills = []
-    const newJsonString = this.request.responseText
+    const newJsonString = response
     const projectWithSkills = JSON.parse(newJsonString)
     this.addNewProject(projectWithSkills)
-    // projectSkills.push(projectWithSkills)
-    // this.setState({projects:projectSkills})
-    console.log(this.state.projects)
 }
 
 componentDidMount(){
      this.makeRequest('http://localhost:5000/api/projects', this.projectRequestComplete)
 }
+//
 
 render(){
   return(
@@ -52,7 +57,6 @@ render(){
     <section className="projects">
 
       <h1>Projects</h1>
-
       <ProjectsList allProjects={this.state.projects} />
 
     </section>
