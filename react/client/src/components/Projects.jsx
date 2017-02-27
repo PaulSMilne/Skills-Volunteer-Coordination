@@ -28,7 +28,7 @@ addNewProject(projectData) {
   this.setState({projects: currentProjects})
 }
 
-//first callback gets list of project, harvests ids and passes on to a new request for each project with a new url including project id
+//first callback gets list of projects, harvests ids and passes on to a new request for each project with a new url including project id
 projectRequestComplete(response, url){
        const jsonString = response
        const projectList = JSON.parse(jsonString)
@@ -49,21 +49,16 @@ skillRequestComplete(response, url){
 componentDidMount(){
      this.makeRequest('http://localhost:5000/api/projects', this.projectRequestComplete)
 }
-//
 
 render(){
   return(
 
     <section className="projects">
-
       <h1>Projects</h1>
       <ProjectsList allProjects={this.state.projects} />
-
     </section>
 
   )}
 }
-
-
 
 export default Projects
